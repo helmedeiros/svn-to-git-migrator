@@ -1,16 +1,17 @@
 #!/bin/bash
 
-PROJECT_OWNER=$1
-PROJECT_NAME=$2
-url="https://github.com"
+PROJECT_HOSTING=$1
+PROJECT_OWNER=$2
+PROJECT_NAME=$3
 
 if [ "$PROJECT_OWNER" == "" ] || [ "$PROJECT_NAME" == "" ]; then
-        echo "Usage: $0 [project_owner] [project_name]"
-        echo "Example: $0 \"helmedeiros\" \"svn-to-git-migrator\""
+        echo "Usage: $0 [project_hosting] [project_owner] [project_name]"
+        echo "Example: $0 \"github.com\" \"helmedeiros\" \"svn-to-git-migrator\""
         exit 1
 fi
 
-echo "Ok, starting migrating the project $PROJECT_NAME by $PROJECT_OWNER"
+url="https://$PROJECT_HOSTING"
+echo "Ok, starting migrating the project $PROJECT_NAME by $PROJECT_OWNER from $url"
 
 echo "OK, give me your SVN user."
 read USER
