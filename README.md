@@ -14,11 +14,11 @@ Clone this repository and run *git-repository-extractor.sh*:
 
 	$ git clone https://github.com/helmedeiros/svn-to-git-migrator.git  
 	$ cd ./svn-to-git-migrator.sh 
-	$ ./svn-to-git-migrator.sh [project_owner] [project_name]
+	$ ./svn-to-git-migrator.sh [project_hosting] [project_owner] [project_name]
 
 Example:
 
-	$ ./svn-to-git-migrator.sh "helmedeiros" "kanban-task-gen"  
+	$ ./svn-to-git-migrator.sh "github.com" helmedeiros" "kanban-task-gen"  
 
 After you run it
 ================
