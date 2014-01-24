@@ -1,42 +1,27 @@
-if [ "$1" == "" ]; then
-clear
+#!/bin/bash
 
-echo "Informe a url base dos projetos SVN."
-read url
+PROJECT_OWNER=$1
+PROJECT_NAME=$2
+url="https://github.com"
 
-if [ "$url" == "" ]; then
-        echo -e "\e[31mDesculpe, mas preciso de uma url base de projetos. Vou cancelar a operação."
+if [ "$PROJECT_OWNER" == "" ] || [ "$PROJECT_NAME" == "" ]; then
+        echo "Usage: $0 [project_owner] [project_name]"
+        echo "Example: $0 \"helmedeiros\" \"svn-to-git-migrator\""
+        exit 1
+fi
+
+echo "Ok, starting migrating the project $PROJECT_NAME by $PROJECT_OWNER"
+
+echo "OK, give me your SVN user."
+read USER
+
+if [ "$USER" == "" ]; then
+        echo -e "\e[31mIm sorry, but I will need a user."
         echo -e "\e[39m"
         exit;
 fi
 
-echo "Certo, agora informe o projeto."
-read project
+echo "Transforming from SVN $url/$PROJECT_OWNER/$PROJECT_NAME project to GIT"
 
-if [ "$project" == "" ]; then
-        echo -e "\e[31mDesculpe, mas preciso de um nome de projeto. Vou cancelar a operação."
-        echo -e "\e[39m"
-        exit;
-fi
-
-echo "Ok, tenho a url base $url e o projeto $project"
-
-echo "Certo, agora informe o usuário SVN."
-read user
-
-if [ "$user" == "" ]; then
-        echo -e "\e[31mDesculpe, mas preciso de um usuário. Vou cancelar a operação."
-        echo -e "\e[39m"
-        exit;
-fi
-
-echo "Baixando do SVN $url/$project"
-
-else
-        url=$1
-        project=$2
-        user=$3
-fi
-
-echo "Baixando do SVN $url/$project"
-git-svn clone --username $user $url/$project/ $project
+echo "Getting from SVN $url/$PROJECT_OWNER/$PROJECT_NAME"
+git svn clone --username $USER $url/$PROJECT_OWNER/ $PROJECT_NAME
