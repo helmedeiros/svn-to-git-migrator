@@ -19,27 +19,20 @@ Once you have the necessary software on your system, you can clone this reposito
 
 1. First, clone down the repository:	
 
-```
-    $ git clone https://github.com/helmedeiros/svn-to-git-migrator.git 
-```
+        $ git clone https://github.com/helmedeiros/svn-to-git-migrator.git
 
 2. Next, you need to make the command executable:
 
-```
-	$ chmod +x svn-to-git-migrator
-```
+        $ chmod +x svn-to-git-migrator
 
 3. To make sure my shell knows where to find svn-to-git-migrator you will need to add the addres from where you've cloned the project to your .bashrc file's PATH variable. Here's how mine looks:
 
-```
-    $ export PATH=${PATH}:/Users/helmed/Projects/workspaceShell/svn-to-git-migrator/
-```
+        $ export PATH=${PATH}:/Users/helmed/Projects/workspaceShell/svn-to-git-migrator/
 
 4. Make sure you reload your shell with:
 
-```
-	$ source ~/.bashrc
-```
+        $ source ~/.bashrc
+
 
 Usage
 =====
@@ -48,9 +41,8 @@ There are different ways to use the svn-to-git to create a git repo from an exis
 
 1. The svn repo is in the standard layout of (trunk, branches, tags) at the root level of the repo.
 
-```
-    $ svn-to-git-migrator https://svn.example.com/path/to/repo
-```
+        $ svn-to-git-migrator https://svn.example.com/path/to/repo
+
 
 
 After you run it
