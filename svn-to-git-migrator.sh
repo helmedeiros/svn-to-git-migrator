@@ -6,7 +6,7 @@
 source $(dirname $0)/commands.sh
 
 # Execute getopt
-ARGS=$(getopt -o u:t: -l "username:,trunk:" -n "getopt.sh" -- "$@");
+ARGS=$(getopt -o u:T: -l "username:,trunk:" -n "getopt.sh" -- "$@");
 
 #Bad arguments
 if [ $? -ne 0 ];
@@ -21,7 +21,7 @@ while true; do
   case "$1" in
 
   	# describing the trunk repository layout
-    -t|--trunk)
+    -T|--trunk)
       shift;
       if [ -n "$1" ]; then
         cmd_trunk $1;
