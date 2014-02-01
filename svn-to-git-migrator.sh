@@ -55,8 +55,5 @@ if [ "$URL" == "" ]; then
         exit 1
 fi
 
-echo "Ok, starting migrating the project from $URL"
-
-echo "Getting from SVN $URL"
-
-git svn clone $URL $cmd_complement
+run_cmd "git svn init --prefix=svn/ $cmd_complement $URL";
+run_cmd "git svn fetch"
