@@ -6,7 +6,7 @@
 source $(dirname $0)/commands.sh
 
 # Execute getopt
-ARGS=$(getopt -o u:T:t: -l "username:,trunk:,tags:" -n "getopt.sh" -- "$@");
+ARGS=$(getopt -o u:T:t:n -l "username:,trunk:,tags:,nobranches" -n "getopt.sh" -- "$@");
 
 #Bad arguments
 if [ $? -ne 0 ];
@@ -20,6 +20,14 @@ eval set -- "$ARGS";
 while true; do
   case "$1" in
 
+  	# describing the tags repository layout
+    -n|--nobranches)
+      shift;
+      if [ -n "$1" ]; then
+        cmd_branch "";
+        shift;
+	  fi
+      ;;
   	# describing the tags repository layout
     -t|--tags)
       shift;

@@ -11,6 +11,10 @@ function cmd_die(){
 	die $1;
 }
 
+function cmd_branch(){
+	echo "defined the branch layout.";
+}
+
 function cmd_username(){
 	echo "defined the username to get from svn.";
 	username $1;
