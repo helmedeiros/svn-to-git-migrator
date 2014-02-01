@@ -6,7 +6,7 @@
 source $(dirname $0)/commands.sh
 
 # Execute getopt
-ARGS=$(getopt -o u: -l "username:" -n "getopt.sh" -- "$@");
+ARGS=$(getopt -o u:t: -l "username:,trunk:" -n "getopt.sh" -- "$@");
 
 #Bad arguments
 if [ $? -ne 0 ];
@@ -20,6 +20,16 @@ eval set -- "$ARGS";
 while true; do
   case "$1" in
 
+  	# describing the trunk repository layout
+    -t|--trunk)
+      shift;
+      if [ -n "$1" ]; then
+        cmd_trunk $1;
+        shift;
+      else
+		cmd_die "the trunk name wasn't valid ${1}."
+	  fi
+      ;;
   	# Set username to connect to svn
     -u|--username)
       shift;
@@ -27,7 +37,7 @@ while true; do
         cmd_username $1;
         shift;
       else
-		cmd_die "the username wasn't valid ${OPTARG}."
+		cmd_die "the username wasn't valid ${1}."
 	  fi
       ;;
     --)
