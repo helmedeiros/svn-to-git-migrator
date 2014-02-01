@@ -3,6 +3,7 @@
 # svn-to-git-migrator commands gateway.
 source $(dirname $0)/builtin/die.sh
 source $(dirname $0)/builtin/username.sh
+source $(dirname $0)/builtin/tag.sh
 source $(dirname $0)/builtin/trunk.sh
 
 function cmd_die(){
@@ -10,9 +11,18 @@ function cmd_die(){
 	die $1;
 }
 
+function cmd_branch(){
+	echo "defined the branch layout.";
+}
+
 function cmd_username(){
 	echo "defined the username to get from svn.";
 	username $1;
+}
+
+function cmd_tags(){
+	echo "defining tags layout.";
+	tag $1;
 }
 
 function cmd_trunk(){
