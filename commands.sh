@@ -5,6 +5,11 @@ source $(dirname $0)/builtin/die.sh
 source $(dirname $0)/builtin/username.sh
 source $(dirname $0)/builtin/tag.sh
 source $(dirname $0)/builtin/trunk.sh
+source $(dirname $0)/builtin/args_handler.sh
+
+function cmd_handle_args(){
+	handle_args $@;
+}
 
 function cmd_die(){
 	echo "will stop";
