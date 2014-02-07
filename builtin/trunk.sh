@@ -3,5 +3,9 @@
 # Custom die function.
 #
 function trunk(){
-	cmd_complement="$cmd_complement --trunk=$1";
+	trunk=$1;
+}
+
+function trunk_cmd(){
+	cmd_complement="$cmd_complement --trunk=$trunk";
 }
