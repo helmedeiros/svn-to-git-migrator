@@ -2,7 +2,7 @@
 #
 function handle_args(){
   # Execute getopt
-  ARGS=$(getopt -o u:T:t:n -l "username:,trunk:,tags:,nobranches" -n "getopt.sh" -- "$@");
+  ARGS=$(getopt -o u:T:t:nd -l "username:,trunk:,tags:,nobranches,dontrun" -n "getopt.sh" -- "$@");
 
   eval set -- "$ARGS";
 
@@ -44,6 +44,10 @@ function handle_args(){
         else
   		    cmd_die "the username wasn't valid ${1}."
         fi
+      ;;
+      -d|--dontrun)
+        shift;
+        execute='0';
       ;;
       --)
         shift;
