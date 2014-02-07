@@ -31,7 +31,10 @@ function cmd_trunk(){
 }
 
 function run_cmd(){
-	echo "Running: $1"
+	if [ $# -eq 1 ]; then
+        echo "Running: $1"
+    fi
+
 	$1
 
 	if [ "$?" -ne "0" ]; then
