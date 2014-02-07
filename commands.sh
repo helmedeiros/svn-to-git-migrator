@@ -6,9 +6,17 @@ source $(dirname $0)/builtin/username.sh
 source $(dirname $0)/builtin/tag.sh
 source $(dirname $0)/builtin/trunk.sh
 source $(dirname $0)/builtin/args_handler.sh
+source $(dirname $0)/builtin/default_options.sh
 
-function cmd_handle_args(){
+function cmd_handle_options(){
+	define_default_options;
 	handle_args $@;
+}
+
+function cmd_create(){
+	trunk_cmd;
+	tags_cmd;
+	cmd="git svn init --prefix=svn/ $cmd_complement $URL";
 }
 
 function cmd_die(){
@@ -40,7 +48,9 @@ function run_cmd(){
         echo "Running: $1"
     fi
 
-	$1
+    if [[ $execute -eq "1" ]]; then 
+		$1
+	fi
 
 	if [ "$?" -ne "0" ]; then
 	  echo "command failed: $1"
