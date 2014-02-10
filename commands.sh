@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 #
 # svn-to-git-migrator commands gateway.
+source $(dirname $0)/builtin/args_handler.sh
+source $(dirname $0)/builtin/branch.sh
+source $(dirname $0)/builtin/default_options.sh
 source $(dirname $0)/builtin/die.sh
-source $(dirname $0)/builtin/username.sh
 source $(dirname $0)/builtin/tag.sh
 source $(dirname $0)/builtin/trunk.sh
-source $(dirname $0)/builtin/args_handler.sh
-source $(dirname $0)/builtin/default_options.sh
+source $(dirname $0)/builtin/username.sh
 
 function cmd_handle_options(){
 	define_default_options;
@@ -56,4 +57,9 @@ function run_cmd(){
 	  echo "command failed: $1"
 	  exit 1
 	fi
+}
+
+function cmd_get_branches_infos(){
+	echo "Getting all branches iinformation... local and remote!"
+	get_branches_infos;
 }

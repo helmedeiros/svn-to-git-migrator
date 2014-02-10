@@ -22,3 +22,5 @@ run_cmd "cd $PROJECT_NAME" "silent";
 
 run_cmd "$cmd";
 run_cmd "git svn fetch"
+
+cmd_get_branches_infos;
