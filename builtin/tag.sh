@@ -4,7 +4,6 @@
 #
 function tag(){
 	tags=$1;
-	cmd_complement="$cmd_complement --tags=$1";
 }
 
 function tags_cmd(){
