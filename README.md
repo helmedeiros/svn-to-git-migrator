@@ -7,6 +7,8 @@ This is useful if you want to migrate one of your old SVN repositories.
 
 Don't worry that this script will **never** change or delete files from your original repository. You will have to delete the files from your original repository later if you want.
 
+This project was started by [Lincolm Aguiar](https://coderwall.com/lifaguiar) at an RBS project.
+
 Install
 =====
 Is important to have git and git-svn installed. The svn-to-git-migrator is a shell wrapper around git's native SVN support through git-svn, so please do verify that you can run $ git svn successfully. 
@@ -43,9 +45,9 @@ There are different ways to use the svn-to-git to create a git repo from an exis
 
         $ svn-to-git-migrator https://svn.example.com/path/to/repo
 
-2. The svn repo is NOT in standard layout and has only a (trunk and tags) at the root level of the repo.
+2. The svn repo is NOT in standard layout and has only a (trunk) at the root level of the repo.
 
-        $ svn-to-git-migrator https://svn.example.com/path/to/repo --trunk dev --tags rel --nobranches
+        $ svn-to-git-migrator https://svn.example.com/path/to/repo --trunk dev --nobranches
 
 3. The svn repo is password protected
 
